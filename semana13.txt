@@ -1,0 +1,38 @@
+
+Microservices
+1. Introdução e conceitos
+Funcionamento da Web: A Web opera com requisições HTTP entre clientes e servidores. Em microsserviços, cada serviço é independente, com responsabilidade específica, se comunicando via APIs.
+Desvantagens do Monolito: Escalabilidade limitada e manutenção difícil motivam a adoção de microsserviços.
+Definição: Microsserviços dividem a aplicação em módulos independentes, cada um com uma função específica, comunicando-se via APIs.
+Vantagens: Escalabilidade, manutenção simplificada. Desvantagens: Maior complexidade e latência.
+Tipos de Serviços:
+Negócios: Regras específicas, como pagamento.
+Infraestrutura: Funcionalidades transversais, como autenticação.
+API Gateway: Roteia requisições e centraliza a comunicação.
+2. Separação de Serviços
+Serviços de Domínio e DDD: Serviços encapsulam a lógica de negócio, alinhando-se com contextos de DDD.
+Padrão Strangler: Facilita a migração de monólitos para microsserviços, permitindo a coexistência e substituição gradual.
+Padrão Sidecar: Um processo auxiliar oferece funcionalidades como logs, sem impactar o código do serviço principal.
+Desafios na Transição:
+Gerenciamento de Dados: Adotar consistência eventual.
+Comunicação e Latência: Usar protocolos eficientes, como gRPC.
+Segurança Distribuída: Implementar autenticação distribuída (OAuth2).
+Monitoramento: Usar ferramentas centralizadas como Prometheus.
+3. Integração entre Serviços
+API Gateway: Gerencia requisições, centraliza segurança e melhora a comunicação.
+Agregador de Processos: Combina respostas de vários serviços em uma resposta unificada.
+Edge Pattern: Coloca serviços na borda da rede para otimizar segurança e desempenho.
+Desafios com API Gateway:
+Ponto Único de Falha: Implementar redundância e alta disponibilidade.
+Latência e Escalabilidade: Otimizar o gateway com caching e escalabilidade horizontal.
+4. Gerenciamento de Dados
+Banco de Dados Independente: Cada serviço tem seu banco, garantindo desacoplamento e autonomia.
+CQRS: Segrega operações de leitura e escrita, otimizando cada tipo.
+Uso de Bancos de Dados Múltiplos: Flexibilidade e otimização específica; exige cuidado com consistência e complexidade.
+Eventos Assíncronos: Facilitam a comunicação, melhorando a performance e escalabilidade; requerem cuidados com entrega garantida e consistência eventual.
+5. Operações e Monitoramento
+Logs: Fundamentais para rastrear e depurar o sistema, cada serviço gera logs independentes.
+Rastreamento de Stack Trace: Uso de ID de correlação para identificar requisições distribuídas.
+Métricas: Acompanhamento centralizado das métricas para monitorar o estado do sistema, gerando alertas e facilitando a resposta a problemas.
+Desafios com Logs: Sincronização e correlação entre logs distribuídos, necessidade de armazenamento e análise robustos.
+Essa abordagem organiza e descreve as principais características, desafios e soluções na arquitetura de microsserviços.
